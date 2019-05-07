@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "GroupId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ConnectorDefinitionVersionArn": {
+                    "description": "The ARN of the connector definition version for this group.",
+                    "type": "string"
+                },
+                "CoreDefinitionVersionArn": {
+                    "description": "The ARN of the core definition version for this group.",
+                    "type": "string"
+                },
+                "DeviceDefinitionVersionArn": {
+                    "description": "The ARN of the device definition version for this group.",
+                    "type": "string"
+                },
+                "FunctionDefinitionVersionArn": {
+                    "description": "The ARN of the function definition version for this group.",
+                    "type": "string"
+                },
+                "LoggerDefinitionVersionArn": {
+                    "description": "The ARN of the logger definition version for this group.",
+                    "type": "string"
+                },
+                "ResourceDefinitionVersionArn": {
+                    "description": "The ARN of the resource definition version for this group.",
+                    "type": "string"
+                },
+                "SubscriptionDefinitionVersionArn": {
+                    "description": "The ARN of the subscription definition version for this group.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

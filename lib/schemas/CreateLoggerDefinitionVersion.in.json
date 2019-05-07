@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "LoggerDefinitionId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Loggers": {
+                    "description": "A list of loggers.",
+                    "items": {
+                        "description": "Information about a logger",
+                        "properties": {
+                            "Component": {
+                                "description": "The component that will be subject to logging.",
+                                "enum": [
+                                    "GreengrassSystem",
+                                    "Lambda"
+                                ],
+                                "type": "string"
+                            },
+                            "Id": {
+                                "description": "A descriptive or arbitrary ID for the logger. This value must be unique within the logger definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.",
+                                "type": "string"
+                            },
+                            "Level": {
+                                "description": "The level of the logs.",
+                                "enum": [
+                                    "DEBUG",
+                                    "INFO",
+                                    "WARN",
+                                    "ERROR",
+                                    "FATAL"
+                                ],
+                                "type": "string"
+                            },
+                            "Space": {
+                                "description": "The amount of file space, in KB, to use if the local file system is used for logging purposes.",
+                                "type": "integer"
+                            },
+                            "Type": {
+                                "description": "The type of log output which will be used.",
+                                "enum": [
+                                    "FileSystem",
+                                    "AWSCloudWatch"
+                                ],
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

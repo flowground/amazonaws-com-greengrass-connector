@@ -1,0 +1,64 @@
+{
+    "type": "object",
+    "properties": {
+        "GroupId": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "DeploymentId": {
+                    "description": "The ID of the deployment if you wish to redeploy a previous deployment.",
+                    "type": "string"
+                },
+                "DeploymentType": {
+                    "description": "The type of deployment. When used for ''CreateDeployment'', only ''NewDeployment'' and ''Redeployment'' are valid.",
+                    "enum": [
+                        "NewDeployment",
+                        "Redeployment",
+                        "ResetDeployment",
+                        "ForceResetDeployment"
+                    ],
+                    "type": "string"
+                },
+                "GroupVersionId": {
+                    "description": "The ID of the group version to be deployed.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

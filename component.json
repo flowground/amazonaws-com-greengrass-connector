@@ -1,0 +1,1519 @@
+{
+    "title": "AWS Greengrass",
+    "description": "AWS IoT Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS IoT Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS IoT Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally.",
+    "docsUrl": "https://aws.amazon.com/greengrass/",
+    "url": "https://api.apis.guru/v2/specs/amazonaws.com/greengrass/2017-06-07/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://greengrass.amazonaws.com/",
+                    "http://greengrass.amazonaws.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "hmac": {
+                "label": "Authorization (hmac)",
+                "viewClass": "TextFieldView",
+                "note": "Amazon Signature authorization v4"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "ListBulkDeployments": {
+            "main": "./lib/actions/ListBulkDeployments.js",
+            "title": "Returns a list of bulk deployments.",
+            "description": "Returns a list of bulk deployments.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListBulkDeployments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StartBulkDeployment": {
+            "main": "./lib/actions/StartBulkDeployment.js",
+            "title": "Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.",
+            "description": "Deploys multiple groups in one operation. This action starts the bulk deployment of a specified set of group versions. Each group version deployment will be triggered with an adaptive rate that has a fixed upper limit. We recommend that you include an ''X-Amzn-Client-Token'' token in every ''StartBulkDeployment'' request. These requests are idempotent with respect to the token and the request parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StartBulkDeployment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "StopBulkDeployment": {
+            "main": "./lib/actions/StopBulkDeployment.js",
+            "title": "Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.",
+            "description": "Stops the execution of a bulk deployment. This action returns a status of ''Stopping'' until the deployment is stopped. You cannot start a new bulk deployment while a previous deployment is in the ''Stopping'' state. This action doesn't rollback completed deployments or cancel pending deployments.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/StopBulkDeployment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListBulkDeploymentDetailedReports": {
+            "main": "./lib/actions/ListBulkDeploymentDetailedReports.js",
+            "title": "Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.",
+            "description": "Gets a paginated list of the deployments that have been started in a bulk deployment operation, and their current deployment status.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListBulkDeploymentDetailedReports.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetBulkDeploymentStatus": {
+            "main": "./lib/actions/GetBulkDeploymentStatus.js",
+            "title": "Returns the status of a bulk deployment.",
+            "description": "Returns the status of a bulk deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetBulkDeploymentStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListConnectorDefinitions": {
+            "main": "./lib/actions/ListConnectorDefinitions.js",
+            "title": "Retrieves a list of connector definitions.",
+            "description": "Retrieves a list of connector definitions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListConnectorDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateConnectorDefinition": {
+            "main": "./lib/actions/CreateConnectorDefinition.js",
+            "title": "Creates a connector definition. You may provide the initial version of the connector definition now or use ''CreateConnectorDefinitionVersion'' at a later time.",
+            "description": "Creates a connector definition. You may provide the initial version of the connector definition now or use ''CreateConnectorDefinitionVersion'' at a later time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateConnectorDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteConnectorDefinition": {
+            "main": "./lib/actions/DeleteConnectorDefinition.js",
+            "title": "Deletes a connector definition.",
+            "description": "Deletes a connector definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteConnectorDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetConnectorDefinition": {
+            "main": "./lib/actions/GetConnectorDefinition.js",
+            "title": "Retrieves information about a connector definition.",
+            "description": "Retrieves information about a connector definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetConnectorDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateConnectorDefinition": {
+            "main": "./lib/actions/UpdateConnectorDefinition.js",
+            "title": "Updates a connector definition.",
+            "description": "Updates a connector definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateConnectorDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListConnectorDefinitionVersions": {
+            "main": "./lib/actions/ListConnectorDefinitionVersions.js",
+            "title": "Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.",
+            "description": "Lists the versions of a connector definition, which are containers for connectors. Connectors run on the Greengrass core and contain built-in integration with local infrastructure, device protocols, AWS, and other cloud services.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListConnectorDefinitionVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateConnectorDefinitionVersion": {
+            "main": "./lib/actions/CreateConnectorDefinitionVersion.js",
+            "title": "Creates a version of a connector definition which has already been defined.",
+            "description": "Creates a version of a connector definition which has already been defined.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateConnectorDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetConnectorDefinitionVersion": {
+            "main": "./lib/actions/GetConnectorDefinitionVersion.js",
+            "title": "Retrieves information about a connector definition version, including the connectors that the version contains. Connectors are prebuilt modules that interact with local infrastructure, device protocols, AWS, and other cloud services.",
+            "description": "Retrieves information about a connector definition version, including the connectors that the version contains. Connectors are prebuilt modules that interact with local infrastructure, device protocols, AWS, and other cloud services.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetConnectorDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListCoreDefinitions": {
+            "main": "./lib/actions/ListCoreDefinitions.js",
+            "title": "Retrieves a list of core definitions.",
+            "description": "Retrieves a list of core definitions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListCoreDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateCoreDefinition": {
+            "main": "./lib/actions/CreateCoreDefinition.js",
+            "title": "Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each contain exactly one Greengrass core.",
+            "description": "Creates a core definition. You may provide the initial version of the core definition now or use ''CreateCoreDefinitionVersion'' at a later time. Greengrass groups must each contain exactly one Greengrass core.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateCoreDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteCoreDefinition": {
+            "main": "./lib/actions/DeleteCoreDefinition.js",
+            "title": "Deletes a core definition.",
+            "description": "Deletes a core definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteCoreDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCoreDefinition": {
+            "main": "./lib/actions/GetCoreDefinition.js",
+            "title": "Retrieves information about a core definition version.",
+            "description": "Retrieves information about a core definition version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCoreDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateCoreDefinition": {
+            "main": "./lib/actions/UpdateCoreDefinition.js",
+            "title": "Updates a core definition.",
+            "description": "Updates a core definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateCoreDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListCoreDefinitionVersions": {
+            "main": "./lib/actions/ListCoreDefinitionVersions.js",
+            "title": "Lists the versions of a core definition.",
+            "description": "Lists the versions of a core definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListCoreDefinitionVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateCoreDefinitionVersion": {
+            "main": "./lib/actions/CreateCoreDefinitionVersion.js",
+            "title": "Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.",
+            "description": "Creates a version of a core definition that has already been defined. Greengrass groups must each contain exactly one Greengrass core.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateCoreDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetCoreDefinitionVersion": {
+            "main": "./lib/actions/GetCoreDefinitionVersion.js",
+            "title": "Retrieves information about a core definition version.",
+            "description": "Retrieves information about a core definition version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetCoreDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListDeviceDefinitions": {
+            "main": "./lib/actions/ListDeviceDefinitions.js",
+            "title": "Retrieves a list of device definitions.",
+            "description": "Retrieves a list of device definitions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListDeviceDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateDeviceDefinition": {
+            "main": "./lib/actions/CreateDeviceDefinition.js",
+            "title": "Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.",
+            "description": "Creates a device definition. You may provide the initial version of the device definition now or use ''CreateDeviceDefinitionVersion'' at a later time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateDeviceDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteDeviceDefinition": {
+            "main": "./lib/actions/DeleteDeviceDefinition.js",
+            "title": "Deletes a device definition.",
+            "description": "Deletes a device definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteDeviceDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeviceDefinition": {
+            "main": "./lib/actions/GetDeviceDefinition.js",
+            "title": "Retrieves information about a device definition.",
+            "description": "Retrieves information about a device definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeviceDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateDeviceDefinition": {
+            "main": "./lib/actions/UpdateDeviceDefinition.js",
+            "title": "Updates a device definition.",
+            "description": "Updates a device definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateDeviceDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListDeviceDefinitionVersions": {
+            "main": "./lib/actions/ListDeviceDefinitionVersions.js",
+            "title": "Lists the versions of a device definition.",
+            "description": "Lists the versions of a device definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListDeviceDefinitionVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateDeviceDefinitionVersion": {
+            "main": "./lib/actions/CreateDeviceDefinitionVersion.js",
+            "title": "Creates a version of a device definition that has already been defined.",
+            "description": "Creates a version of a device definition that has already been defined.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateDeviceDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeviceDefinitionVersion": {
+            "main": "./lib/actions/GetDeviceDefinitionVersion.js",
+            "title": "Retrieves information about a device definition version.",
+            "description": "Retrieves information about a device definition version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeviceDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListFunctionDefinitions": {
+            "main": "./lib/actions/ListFunctionDefinitions.js",
+            "title": "Retrieves a list of Lambda function definitions.",
+            "description": "Retrieves a list of Lambda function definitions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListFunctionDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateFunctionDefinition": {
+            "main": "./lib/actions/CreateFunctionDefinition.js",
+            "title": "Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.",
+            "description": "Creates a Lambda function definition which contains a list of Lambda functions and their configurations to be used in a group. You can create an initial version of the definition by providing a list of Lambda functions and their configurations now, or use ''CreateFunctionDefinitionVersion'' later.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateFunctionDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteFunctionDefinition": {
+            "main": "./lib/actions/DeleteFunctionDefinition.js",
+            "title": "Deletes a Lambda function definition.",
+            "description": "Deletes a Lambda function definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteFunctionDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetFunctionDefinition": {
+            "main": "./lib/actions/GetFunctionDefinition.js",
+            "title": "Retrieves information about a Lambda function definition, including its creation time and latest version.",
+            "description": "Retrieves information about a Lambda function definition, including its creation time and latest version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetFunctionDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateFunctionDefinition": {
+            "main": "./lib/actions/UpdateFunctionDefinition.js",
+            "title": "Updates a Lambda function definition.",
+            "description": "Updates a Lambda function definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateFunctionDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListFunctionDefinitionVersions": {
+            "main": "./lib/actions/ListFunctionDefinitionVersions.js",
+            "title": "Lists the versions of a Lambda function definition.",
+            "description": "Lists the versions of a Lambda function definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListFunctionDefinitionVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateFunctionDefinitionVersion": {
+            "main": "./lib/actions/CreateFunctionDefinitionVersion.js",
+            "title": "Creates a version of a Lambda function definition that has already been defined.",
+            "description": "Creates a version of a Lambda function definition that has already been defined.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateFunctionDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetFunctionDefinitionVersion": {
+            "main": "./lib/actions/GetFunctionDefinitionVersion.js",
+            "title": "Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.",
+            "description": "Retrieves information about a Lambda function definition version, including which Lambda functions are included in the version and their configurations.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetFunctionDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListLoggerDefinitions": {
+            "main": "./lib/actions/ListLoggerDefinitions.js",
+            "title": "Retrieves a list of logger definitions.",
+            "description": "Retrieves a list of logger definitions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListLoggerDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateLoggerDefinition": {
+            "main": "./lib/actions/CreateLoggerDefinition.js",
+            "title": "Creates a logger definition. You may provide the initial version of the logger definition now or use ''CreateLoggerDefinitionVersion'' at a later time.",
+            "description": "Creates a logger definition. You may provide the initial version of the logger definition now or use ''CreateLoggerDefinitionVersion'' at a later time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateLoggerDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteLoggerDefinition": {
+            "main": "./lib/actions/DeleteLoggerDefinition.js",
+            "title": "Deletes a logger definition.",
+            "description": "Deletes a logger definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteLoggerDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetLoggerDefinition": {
+            "main": "./lib/actions/GetLoggerDefinition.js",
+            "title": "Retrieves information about a logger definition.",
+            "description": "Retrieves information about a logger definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetLoggerDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateLoggerDefinition": {
+            "main": "./lib/actions/UpdateLoggerDefinition.js",
+            "title": "Updates a logger definition.",
+            "description": "Updates a logger definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateLoggerDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListLoggerDefinitionVersions": {
+            "main": "./lib/actions/ListLoggerDefinitionVersions.js",
+            "title": "Lists the versions of a logger definition.",
+            "description": "Lists the versions of a logger definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListLoggerDefinitionVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateLoggerDefinitionVersion": {
+            "main": "./lib/actions/CreateLoggerDefinitionVersion.js",
+            "title": "Creates a version of a logger definition that has already been defined.",
+            "description": "Creates a version of a logger definition that has already been defined.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateLoggerDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetLoggerDefinitionVersion": {
+            "main": "./lib/actions/GetLoggerDefinitionVersion.js",
+            "title": "Retrieves information about a logger definition version.",
+            "description": "Retrieves information about a logger definition version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetLoggerDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListResourceDefinitions": {
+            "main": "./lib/actions/ListResourceDefinitions.js",
+            "title": "Retrieves a list of resource definitions.",
+            "description": "Retrieves a list of resource definitions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListResourceDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateResourceDefinition": {
+            "main": "./lib/actions/CreateResourceDefinition.js",
+            "title": "Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.",
+            "description": "Creates a resource definition which contains a list of resources to be used in a group. You can create an initial version of the definition by providing a list of resources now, or use ''CreateResourceDefinitionVersion'' later.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateResourceDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteResourceDefinition": {
+            "main": "./lib/actions/DeleteResourceDefinition.js",
+            "title": "Deletes a resource definition.",
+            "description": "Deletes a resource definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteResourceDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetResourceDefinition": {
+            "main": "./lib/actions/GetResourceDefinition.js",
+            "title": "Retrieves information about a resource definition, including its creation time and latest version.",
+            "description": "Retrieves information about a resource definition, including its creation time and latest version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetResourceDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateResourceDefinition": {
+            "main": "./lib/actions/UpdateResourceDefinition.js",
+            "title": "Updates a resource definition.",
+            "description": "Updates a resource definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateResourceDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListResourceDefinitionVersions": {
+            "main": "./lib/actions/ListResourceDefinitionVersions.js",
+            "title": "Lists the versions of a resource definition.",
+            "description": "Lists the versions of a resource definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListResourceDefinitionVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateResourceDefinitionVersion": {
+            "main": "./lib/actions/CreateResourceDefinitionVersion.js",
+            "title": "Creates a version of a resource definition that has already been defined.",
+            "description": "Creates a version of a resource definition that has already been defined.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateResourceDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetResourceDefinitionVersion": {
+            "main": "./lib/actions/GetResourceDefinitionVersion.js",
+            "title": "Retrieves information about a resource definition version, including which resources are included in the version.",
+            "description": "Retrieves information about a resource definition version, including which resources are included in the version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetResourceDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSubscriptionDefinitions": {
+            "main": "./lib/actions/ListSubscriptionDefinitions.js",
+            "title": "Retrieves a list of subscription definitions.",
+            "description": "Retrieves a list of subscription definitions.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSubscriptionDefinitions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateSubscriptionDefinition": {
+            "main": "./lib/actions/CreateSubscriptionDefinition.js",
+            "title": "Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.",
+            "description": "Creates a subscription definition. You may provide the initial version of the subscription definition now or use ''CreateSubscriptionDefinitionVersion'' at a later time.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateSubscriptionDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteSubscriptionDefinition": {
+            "main": "./lib/actions/DeleteSubscriptionDefinition.js",
+            "title": "Deletes a subscription definition.",
+            "description": "Deletes a subscription definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteSubscriptionDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSubscriptionDefinition": {
+            "main": "./lib/actions/GetSubscriptionDefinition.js",
+            "title": "Retrieves information about a subscription definition.",
+            "description": "Retrieves information about a subscription definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSubscriptionDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateSubscriptionDefinition": {
+            "main": "./lib/actions/UpdateSubscriptionDefinition.js",
+            "title": "Updates a subscription definition.",
+            "description": "Updates a subscription definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateSubscriptionDefinition.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListSubscriptionDefinitionVersions": {
+            "main": "./lib/actions/ListSubscriptionDefinitionVersions.js",
+            "title": "Lists the versions of a subscription definition.",
+            "description": "Lists the versions of a subscription definition.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListSubscriptionDefinitionVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateSubscriptionDefinitionVersion": {
+            "main": "./lib/actions/CreateSubscriptionDefinitionVersion.js",
+            "title": "Creates a version of a subscription definition which has already been defined.",
+            "description": "Creates a version of a subscription definition which has already been defined.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateSubscriptionDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetSubscriptionDefinitionVersion": {
+            "main": "./lib/actions/GetSubscriptionDefinitionVersion.js",
+            "title": "Retrieves information about a subscription definition version.",
+            "description": "Retrieves information about a subscription definition version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetSubscriptionDefinitionVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListGroups": {
+            "main": "./lib/actions/ListGroups.js",
+            "title": "Retrieves a list of groups.",
+            "description": "Retrieves a list of groups.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListGroups.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateGroup": {
+            "main": "./lib/actions/CreateGroup.js",
+            "title": "Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion'' at a later time. Tip: You can use the ''gg_group_setup'' package (https://github.com/awslabs/aws-greengrass-group-setup) as a library or command-line application to create and deploy Greengrass groups.",
+            "description": "Creates a group. You may provide the initial version of the group or use ''CreateGroupVersion'' at a later time. Tip: You can use the ''gg_group_setup'' package (https://github.com/awslabs/aws-greengrass-group-setup) as a library or command-line application to create and deploy Greengrass groups.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DeleteGroup": {
+            "main": "./lib/actions/DeleteGroup.js",
+            "title": "Deletes a group.",
+            "description": "Deletes a group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DeleteGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetGroup": {
+            "main": "./lib/actions/GetGroup.js",
+            "title": "Retrieves information about a group.",
+            "description": "Retrieves information about a group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateGroup": {
+            "main": "./lib/actions/UpdateGroup.js",
+            "title": "Updates a group.",
+            "description": "Updates a group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListGroupCertificateAuthorities": {
+            "main": "./lib/actions/ListGroupCertificateAuthorities.js",
+            "title": "Retrieves the current CAs for a group.",
+            "description": "Retrieves the current CAs for a group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListGroupCertificateAuthorities.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateGroupCertificateAuthority": {
+            "main": "./lib/actions/CreateGroupCertificateAuthority.js",
+            "title": "Creates a CA for the group. If a CA already exists, it will rotate the existing CA.",
+            "description": "Creates a CA for the group. If a CA already exists, it will rotate the existing CA.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateGroupCertificateAuthority.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetGroupCertificateConfiguration": {
+            "main": "./lib/actions/GetGroupCertificateConfiguration.js",
+            "title": "Retrieves the current configuration for the CA used by the group.",
+            "description": "Retrieves the current configuration for the CA used by the group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetGroupCertificateConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateGroupCertificateConfiguration": {
+            "main": "./lib/actions/UpdateGroupCertificateConfiguration.js",
+            "title": "Updates the Certificate expiry time for a group.",
+            "description": "Updates the Certificate expiry time for a group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateGroupCertificateConfiguration.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetGroupCertificateAuthority": {
+            "main": "./lib/actions/GetGroupCertificateAuthority.js",
+            "title": "Retreives the CA associated with a group. Returns the public key of the CA.",
+            "description": "Retreives the CA associated with a group. Returns the public key of the CA.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetGroupCertificateAuthority.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListDeployments": {
+            "main": "./lib/actions/ListDeployments.js",
+            "title": "Returns a history of deployments for the group.",
+            "description": "Returns a history of deployments for the group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListDeployments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateDeployment": {
+            "main": "./lib/actions/CreateDeployment.js",
+            "title": "Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.",
+            "description": "Creates a deployment. ''CreateDeployment'' requests are idempotent with respect to the ''X-Amzn-Client-Token'' token and the request parameters.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateDeployment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ResetDeployments": {
+            "main": "./lib/actions/ResetDeployments.js",
+            "title": "Resets a group's deployments.",
+            "description": "Resets a group's deployments.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ResetDeployments.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetDeploymentStatus": {
+            "main": "./lib/actions/GetDeploymentStatus.js",
+            "title": "Returns the status of a deployment.",
+            "description": "Returns the status of a deployment.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetDeploymentStatus.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateRoleFromGroup": {
+            "main": "./lib/actions/DisassociateRoleFromGroup.js",
+            "title": "Disassociates the role from a group.",
+            "description": "Disassociates the role from a group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateRoleFromGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetAssociatedRole": {
+            "main": "./lib/actions/GetAssociatedRole.js",
+            "title": "Retrieves the role associated with a particular group.",
+            "description": "Retrieves the role associated with a particular group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetAssociatedRole.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssociateRoleToGroup": {
+            "main": "./lib/actions/AssociateRoleToGroup.js",
+            "title": "Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.",
+            "description": "Associates a role with a group. Your Greengrass core will use the role to access AWS cloud services. The role's permissions should allow Greengrass core Lambda functions to perform actions against the cloud.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateRoleToGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ListGroupVersions": {
+            "main": "./lib/actions/ListGroupVersions.js",
+            "title": "Lists the versions of a group.",
+            "description": "Lists the versions of a group.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ListGroupVersions.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateGroupVersion": {
+            "main": "./lib/actions/CreateGroupVersion.js",
+            "title": "Creates a version of a group which has already been defined.",
+            "description": "Creates a version of a group which has already been defined.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateGroupVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetGroupVersion": {
+            "main": "./lib/actions/GetGroupVersion.js",
+            "title": "Retrieves information about a group version.",
+            "description": "Retrieves information about a group version.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetGroupVersion.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DisassociateServiceRoleFromAccount": {
+            "main": "./lib/actions/DisassociateServiceRoleFromAccount.js",
+            "title": "Disassociates the service role from your account. Without a service role, deployments will not work.",
+            "description": "Disassociates the service role from your account. Without a service role, deployments will not work.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DisassociateServiceRoleFromAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetServiceRoleForAccount": {
+            "main": "./lib/actions/GetServiceRoleForAccount.js",
+            "title": "Retrieves the service role that is attached to your account.",
+            "description": "Retrieves the service role that is attached to your account.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetServiceRoleForAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AssociateServiceRoleToAccount": {
+            "main": "./lib/actions/AssociateServiceRoleToAccount.js",
+            "title": "Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.",
+            "description": "Associates a role with your account. AWS IoT Greengrass will use the role to access your Lambda functions and AWS IoT resources. This is necessary for deployments to succeed. The role must have at least minimum permissions in the policy ''AWSGreengrassResourceAccessRolePolicy''.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AssociateServiceRoleToAccount.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "GetConnectivityInfo": {
+            "main": "./lib/actions/GetConnectivityInfo.js",
+            "title": "Retrieves the connectivity information for a core.",
+            "description": "Retrieves the connectivity information for a core.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/GetConnectivityInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "UpdateConnectivityInfo": {
+            "main": "./lib/actions/UpdateConnectivityInfo.js",
+            "title": "Updates the connectivity information for the core. Any devices that belong to the group which has this core will receive this information in order to find the location of the core and connect to it.",
+            "description": "Updates the connectivity information for the core. Any devices that belong to the group which has this core will receive this information in order to find the location of the core and connect to it.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/UpdateConnectivityInfo.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "CreateSoftwareUpdateJob": {
+            "main": "./lib/actions/CreateSoftwareUpdateJob.js",
+            "title": "Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.",
+            "description": "Creates a software update for a core or group of cores (specified as an IoT thing group.) Use this to update the OTA Agent as well as the Greengrass core software. It makes use of the IoT Jobs feature which provides additional commands to manage a Greengrass core software update job.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/CreateSoftwareUpdateJob.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

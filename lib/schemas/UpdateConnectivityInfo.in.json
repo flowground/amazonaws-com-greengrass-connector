@@ -1,0 +1,73 @@
+{
+    "type": "object",
+    "properties": {
+        "ThingName": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Connectivity information.",
+            "properties": {
+                "ConnectivityInfo": {
+                    "description": "A list of connectivity info.",
+                    "items": {
+                        "description": "Information about a Greengrass core's connectivity.",
+                        "properties": {
+                            "HostAddress": {
+                                "description": "The endpoint for the Greengrass core. Can be an IP address or DNS.",
+                                "type": "string"
+                            },
+                            "Id": {
+                                "description": "The ID of the connectivity information.",
+                                "type": "string"
+                            },
+                            "Metadata": {
+                                "description": "Metadata for this endpoint.",
+                                "type": "string"
+                            },
+                            "PortNumber": {
+                                "description": "The port of the Greengrass core. Usually 8883.",
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,217 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "InitialVersion": {
+                    "description": "Information about the initial version of the function definition.",
+                    "properties": {
+                        "DefaultConfig": {
+                            "description": "The default configuration that applies to all Lambda functions in this function definition version. Individual Lambda functions can override these settings.",
+                            "properties": {
+                                "Execution": {
+                                    "description": "Configuration information that specifies how a Lambda function runs. ",
+                                    "properties": {
+                                        "IsolationMode": {
+                                            "description": "Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.",
+                                            "enum": [
+                                                "GreengrassContainer",
+                                                "NoContainer"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "RunAs": {
+                                            "description": "Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.",
+                                            "properties": {
+                                                "Gid": {
+                                                    "description": "The group ID whose permissions are used to run a Lambda function.",
+                                                    "type": "integer"
+                                                },
+                                                "Uid": {
+                                                    "description": "The user ID whose permissions are used to run a Lambda function.",
+                                                    "type": "integer"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "Functions": {
+                            "description": "A list of Lambda functions in this function definition version.",
+                            "items": {
+                                "description": "Information about a Lambda function.",
+                                "properties": {
+                                    "FunctionArn": {
+                                        "description": "The ARN of the Lambda function.",
+                                        "type": "string"
+                                    },
+                                    "FunctionConfiguration": {
+                                        "description": "The configuration of the Lambda function.",
+                                        "properties": {
+                                            "EncodingType": {
+                                                "description": "The expected encoding type of the input payload for the function. The default is ''json''.",
+                                                "enum": [
+                                                    "binary",
+                                                    "json"
+                                                ],
+                                                "type": "string"
+                                            },
+                                            "Environment": {
+                                                "description": "The environment configuration of the function.",
+                                                "properties": {
+                                                    "AccessSysfs": {
+                                                        "description": "If true, the Lambda function is allowed to access the host's /sys folder. Use this when the Lambda function needs to read device information from /sys. This setting applies only when you run the Lambda function in a Greengrass container.",
+                                                        "type": "boolean"
+                                                    },
+                                                    "Execution": {
+                                                        "description": "Configuration related to executing the Lambda function",
+                                                        "properties": {
+                                                            "IsolationMode": {
+                                                                "description": "Specifies whether the Lambda function runs in a Greengrass container (default) or without containerization. Unless your scenario requires that you run without containerization, we recommend that you run in a Greengrass container. Omit this value to run the Lambda function with the default containerization for the group.",
+                                                                "enum": [
+                                                                    "GreengrassContainer",
+                                                                    "NoContainer"
+                                                                ],
+                                                                "type": "string"
+                                                            },
+                                                            "RunAs": {
+                                                                "description": "Specifies the user and group whose permissions are used when running the Lambda function. You can specify one or both values to override the default values. We recommend that you avoid running as root unless absolutely necessary to minimize the risk of unintended changes or malicious attacks. To run as root, you must set ''IsolationMode'' to ''NoContainer'' and update config.json in ''greengrass-root/config'' to set ''allowFunctionsToRunAsRoot'' to ''yes''.",
+                                                                "properties": {
+                                                                    "Gid": {
+                                                                        "description": "The group ID whose permissions are used to run a Lambda function.",
+                                                                        "type": "integer"
+                                                                    },
+                                                                    "Uid": {
+                                                                        "description": "The user ID whose permissions are used to run a Lambda function.",
+                                                                        "type": "integer"
+                                                                    }
+                                                                },
+                                                                "type": "object"
+                                                            }
+                                                        },
+                                                        "type": "object"
+                                                    },
+                                                    "ResourceAccessPolicies": {
+                                                        "description": "A list of the resources, with their permissions, to which the Lambda function will be granted access. A Lambda function can have at most 10 resources. ResourceAccessPolicies apply only when you run the Lambda function in a Greengrass container.",
+                                                        "items": {
+                                                            "description": "A policy used by the function to access a resource.",
+                                                            "properties": {
+                                                                "Permission": {
+                                                                    "description": "The permissions that the Lambda function has to the resource. Can be one of ''rw'' (read/write) or ''ro'' (read-only).",
+                                                                    "enum": [
+                                                                        "ro",
+                                                                        "rw"
+                                                                    ],
+                                                                    "type": "string"
+                                                                },
+                                                                "ResourceId": {
+                                                                    "description": "The ID of the resource. (This ID is assigned to the resource when you create the resource definiton.)",
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "type": "array"
+                                                    },
+                                                    "Variables": {
+                                                        "description": "Environment variables for the Lambda function's configuration.",
+                                                        "items": {
+                                                            "properties": {
+                                                                "key": {
+                                                                    "type": "string"
+                                                                },
+                                                                "value": {
+                                                                    "type": "string"
+                                                                }
+                                                            },
+                                                            "type": "object"
+                                                        },
+                                                        "type": "array"
+                                                    }
+                                                },
+                                                "type": "object"
+                                            },
+                                            "ExecArgs": {
+                                                "description": "The execution arguments.",
+                                                "type": "string"
+                                            },
+                                            "Executable": {
+                                                "description": "The name of the function executable.",
+                                                "type": "string"
+                                            },
+                                            "MemorySize": {
+                                                "description": "The memory size, in KB, which the function requires. This setting is not applicable and should be cleared when you run the Lambda function without containerization.",
+                                                "type": "integer"
+                                            },
+                                            "Pinned": {
+                                                "description": "True if the function is pinned. Pinned means the function is long-lived and starts when the core starts.",
+                                                "type": "boolean"
+                                            },
+                                            "Timeout": {
+                                                "description": "The allowed function execution time, after which Lambda should terminate the function. This timeout still applies to pinned Lambda functions for each request.",
+                                                "type": "integer"
+                                            }
+                                        },
+                                        "type": "object"
+                                    },
+                                    "Id": {
+                                        "description": "A descriptive or arbitrary ID for the function. This value must be unique within the function definition version. Max length is 128 characters with pattern ''[a-zA-Z0-9:_-]+''.",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            },
+                            "type": "array"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Name": {
+                    "description": "The name of the function definition.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
