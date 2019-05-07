@@ -1,11 +1,11 @@
-# ![LOGO](logo.png) AWS Greengrass MSP Connector
+# ![LOGO](logo.png) AWS Greengrass **flow**ground Connector
 
 ## Description
 
-A generated MSP connector for the AWS Greengrass API (version 2017-06-07).
+A generated **flow**ground connector for the AWS Greengrass API (version 2017-06-07).
 
 Generated from: https://api.apis.guru/v2/specs/amazonaws.com/greengrass/2017-06-07/swagger.json<br/>
-Generated at: 2019-05-07T11:16:03+03:00
+Generated at: 2019-05-07T17:35:43+03:00
 
 ## API Description
 
@@ -1150,7 +1150,7 @@ Supported authorization schemes:
 
 ## License
 
-flowground :- Telekom iPaaS / amazonaws-com-greengrass-connector<br/>
+**flow**ground :- Telekom iPaaS / amazonaws-com-greengrass-connector<br/>
 Copyright © 2019, [Deutsche Telekom AG](https://www.telekom.de)<br/>
 contact: flowground@telekom.de
 
